@@ -35,7 +35,11 @@ export default function DeployModal({ onClose }) {
       onClose();
     } catch (err) {
       console.error(err);
-      setError(err.response?.data?.error || err.response?.data?.details || 'Failed to deploy container. Make sure the image exists and ports act available.');
+      setError(
+  err.response?.data?.details ||
+  err.response?.data?.error ||
+  "Deployment failed. Please check Docker or port usage."
+);
     } finally {
       setLoading(false);
     }
