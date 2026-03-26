@@ -46,3 +46,6 @@ Since the backend container interacts directly with your host's Docker daemon, D
 
 ## Security Notice
 This project mounts the Docker Socket directly into the backend container for orchestration purposes. Only use this configuration in secure, trusted, or local environments, as socket exposure allows root-level access to the host machine.
+
+## 🛠 Improvements
+- Added better error handling
