@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: dockstack-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - dockstack-mongo-data:/data/db
+    networks:
+      - dockstack-network
+    restart: unless-stopped
+
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: dockstack-backend
+    depends_on:
+      - mongodb
+    ports:
+      - "5555:5555"
+    environment:
+      - NODE_ENV=production
+      - PORT=5555
+      - MONGO_URI=mongodb://mongodb:27017/dockstack
+      - JWT_SECRET=supersecret_dockstack_key_change_me
+    volumes:
+      # Mount the Docker socket so dockerode can communicate with the host daemon
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - dockstack-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: dockstack-frontend
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    networks:
+      - dockstack-network
+    restart: unless-stopped
+
+volumes:
+  dockstack-mongo-data:
+
+networks:
+  dockstack-network:
+    driver: bridge
