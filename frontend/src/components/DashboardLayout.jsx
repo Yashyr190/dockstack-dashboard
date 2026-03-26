@@ -58,9 +58,9 @@ export default function DashboardLayout() {
         </div>
       </aside>
 
-      {/* Main Content Area */}
+      {/* Main Content*/}
       <main className="flex-1 flex flex-col min-h-screen relative overflow-y-auto">
-        {/* Top Navbar for Mobile */}
+        {/* Top Navbar for device */}
         <header className="h-16 glass-panel border-b border-slate-700/50 flex items-center justify-between px-6 md:hidden sticky top-0 z-50">
           <div className="flex items-center">
             <Layers className="w-6 h-6 text-blue-500 mr-2" />
