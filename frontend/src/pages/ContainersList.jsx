@@ -95,7 +95,7 @@ export default function ContainersList() {
               <div className="w-16 h-16 rounded-full bg-slate-800/50 flex items-center justify-center mb-4 border border-slate-700">
                 <AlertTriangle className="w-8 h-8 text-slate-500" />
               </div>
-              <h3 className="text-lg font-medium text-white">No containers found</h3>
+              <h3 className="text-lg font-medium text-white">No active containers found</h3>
               <p className="text-slate-400 mt-1">Start by deploying a new container image.</p>
             </div>
           ) : (
