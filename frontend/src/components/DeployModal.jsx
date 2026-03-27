@@ -13,9 +13,10 @@ export default function DeployModal({ onClose }) {
 
   const handleDeploy = async (e) => {
     e.preventDefault();
-    if (!image) {
-      setError('Container image name is required');
-      return;
+    if (!image || image.trim() === "") {
+  setError("Image name is required");
+  return;
+}
     }
 
     setLoading(true);
