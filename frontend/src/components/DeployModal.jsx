@@ -38,7 +38,7 @@ export default function DeployModal({ onClose }) {
       setError(
   err.response?.data?.details ||
   err.response?.data?.error ||
-  "Deployment failed. Please check Docker or port usage."
+  "Deployment failed. Please check Docker status or port conflicts."
 );
     } finally {
       setLoading(false);
