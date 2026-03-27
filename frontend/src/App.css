@@ -22,6 +22,18 @@
   font-size: 14px;
   margin-top: 8px;
 }
+button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.85;
+  transform: scale(1.02);
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
